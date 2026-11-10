@@ -1,0 +1,32 @@
+$colors: (
+  primary: #3b82f6,
+  secondary: #64748b,
+  bg: #0f172a,
+  text: #f8fafc,
+  card-bg: #1e293b,
+  input-bg: #334155,
+  error: #ef4444
+);
+
+$radii: (
+  sm: 4px,
+  md: 8px,
+  lg: 16px,
+  full: 9999px
+);
+
+$breakpoints: (
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px
+);
+
+:root {
+  @each $key, $value in $colors {
+    --color-#{$key}: #{$value};
+  }
+  @each $key, $value in $radii {
+    --radius-#{$key}: #{$value};
+  }
+}

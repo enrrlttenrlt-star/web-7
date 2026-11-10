@@ -1,0 +1,163 @@
+@use 'tokens';
+@use 'functions';
+@use 'mixins';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-size: functions.rem(16);
+  line-height: 1.5;
+}
+
+// Navbar
+.navbar {
+  background-color: var(--color-card-bg);
+  padding: functions.rem(16) functions.rem(32);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  &__container {
+    max-width: functions.rem(1200);
+    margin: 0 auto;
+    @include mixins.flex-center(row, space-between, center);
+  }
+
+  &__brand {
+    font-size: functions.rem(20);
+    font-weight: bold;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  &__toggle-btn {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: functions.rem(8) functions.rem(16);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: 600;
+  }
+}
+
+// Gallery Grid (3 баганатай сетка)
+.gallery-grid {
+  max-width: functions.rem(1200);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: functions.rem(24);
+
+  @include mixins.respond(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mixins.respond(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Card компонент
+.card {
+  background-color: var(--color-card-bg);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
+  &__image {
+    width: 100%;
+    height: functions.rem(200);
+    object-fit: cover;
+  }
+
+  &__body {
+    padding: functions.rem(20);
+  }
+
+  &__title {
+    font-size: functions.rem(18);
+    margin-bottom: functions.rem(8);
+    color: var(--color-text);
+  }
+
+  &__text {
+    font-size: functions.rem(14);
+    color: var(--color-secondary);
+    margin-bottom: functions.rem(16);
+  }
+
+  &__btn {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: functions.rem(10) functions.rem(16);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: functions.rem(14);
+    width: 100%;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+// Form Section
+.form-section {
+  max-width: functions.rem(600);
+  margin: functions.rem(48) auto;
+  background-color: var(--color-card-bg);
+  padding: functions.rem(32);
+  border-radius: var(--radius-lg);
+
+  &__title {
+    font-size: functions.rem(22);
+    margin-bottom: functions.rem(24);
+    text-align: center;
+    color: var(--color-text);
+  }
+
+  &__group {
+    margin-bottom: functions.rem(20);
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: functions.rem(8);
+    font-size: functions.rem(14);
+    color: var(--color-text);
+  }
+
+  &__input {
+    width: 100%;
+    padding: functions.rem(12);
+    background-color: var(--color-input-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-size: functions.rem(16);
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+  }
+
+  &__error {
+    font-size: functions.rem(12);
+    color: var(--color-error);
+    margin-top: functions.rem(4);
+    display: none;
+  }
+}
+
+// Utility class
+.m-4 {
+  margin: functions.rem(24);
+}

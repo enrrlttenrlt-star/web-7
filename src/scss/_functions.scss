@@ -1,0 +1,13 @@
+@use 'sass:math';
+
+@function rem($pixels, $base: 16) {
+  @return math.div($pixels, $base) * 1rem;
+}
+
+@function contrast($color) {
+  @if (lightness($color) > 50%) {
+    @return #0f172a;
+  } @else {
+    @return #f8fafc;
+  }
+}

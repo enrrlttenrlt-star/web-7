@@ -1,0 +1,18 @@
+@use 'tokens';
+
+@mixin respond($breakpoint) {
+  @if map-has-key(tokens.$breakpoints, $breakpoint) {
+    @media (min-width: map-get(tokens.$breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Тодорхойгүй breakpoint: #{breakpoint}";
+  }
+}
+
+@mixin flex-center($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
